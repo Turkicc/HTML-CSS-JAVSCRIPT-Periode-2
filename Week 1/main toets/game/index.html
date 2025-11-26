@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="spel()">Begin te spelen!</button>
+
+    <script>
+let spelen = true;
+
+while (spelen) {
+    let geheimGetal = Math.floor(Math.random() * 10) + 1;
+    let geradengetal = Number(prompt("Kies een getal tussen de 1 en 10"));
+// getal te hoog
+    if (geradengetal > geheimGetal) {
+        alert("Je getal is te hoog!");
+        // getal te laag
+    } else if (geradengetal < geheimGetal) {
+        alert("Je getal is te laag!");
+    } else {
+        alert("Je hebt het geraden!");
+    }
+// herhalen
+    spelen = confirm("Wil je nog een keer spelen?");
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijn eerste JavaScript</title>
+</head>
+
+<body>
+    <h1>Welkom bij JavaScript!</h1>
+    <button onclick="toonBericht()">Klik op mij</button>
+    <button onclick="toonBericht2()">console log</button>
+    <button onclick="myFunction()">Klik op papa</button>
+    <button onclick="Vraagnaam()">Informatie invullen</button>
+    <button onclick="rekenmachine()">Rekenmachine alleen +</button>
+
+    <p id="zwart"></p>
+
+    <script>
+
+function rekenmachine() {
+    let getal1 = prompt("Voer het eerste getal in:");
+    let getal2 = prompt("Voer het tweede getal in:");
+    let resultaat = Number(getal1) + Number(getal2);
+    alert("Het resultaat van " + getal1 + " + " + getal2 + " is: " + resultaat);
+}
+
+
+// Wanneer je een naam vraagt en leeftijd
+        function Vraagnaam() {
+// Wil je je naam en leeftijd invullen?
+            let vraag = confirm("Wil je je naam en leeftijd invullen? (ja/nee)");
+            if (vraag == false) return
+            if (!vraag)
+// Als nee
+            {
+                alert("Oke, misschien een andere keer!");
+                return;
+            }
+// Als ja
+            let naam = prompt("Wat is je naam?");
+            let leeftijd = prompt("Wat is je leeftijd?");
+
+            if (naam) {
+                alert("Hallo " + naam + ", Hoe gaat het?")
+            }
+            else {
+                alert("Hallo onbekende, Hoe gaat het?")
+            }
+
+            if (leeftijd >= 18) {
+                alert("Deze site mag je nu kijken");
+            }
+            else {
+                alert("Je bent niet oud genoeg om deze site te bezoeken.");
+            }
+        }
+// Eerste bericht
+        function toonBericht() {
+            alert("Ik hou edwin de vries");
+        }
+// console log
+        function toonBericht2() {
+   console.log(10 + 2);
+        }
+// Derde berichta
+        function myFunction() {
+            document.getElementById("zwart").innerHTML = "black lives matter";
+        }
+
+
+
+    </script>
+</body>
+
+</html>

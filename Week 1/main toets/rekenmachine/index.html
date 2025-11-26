@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="telop()"> Om getallen op te tellen</button>
+    <button onclick="telaf()"> Om getallen af te trekken</button>
+    <button onclick="teldelen()"> Om getallen op te delen</button>
+    <button onclick="telkeren()"> Om getallen op keren</button>
+
+
+
+
+    <script>
+
+function telop() {
+    let num1 = prompt("Eerste getal")
+    let num2 = prompt("Tweede getal")
+
+ if (isNaN(num1) || isNaN(num2)) {
+        alert("ongeldige invoer vul een getal in mongool");
+        return; 
+    }
+    let sum = Number(num1) + Number(num2)
+
+    alert( num1 + "+" + num2 + "=" + sum)
+}
+
+function telaf() {
+    let num1 = prompt("Eerste getal")
+    let num2 = prompt("Tweede getal")
+
+ if (isNaN(num1) || isNaN(num2)) {
+        alert("ongeldige invoer vul een getal in mongool");
+        return; 
+    }
+    let sum = Number(num1) - Number(num2)
+
+    alert( num1 + "-" + num2 + "=" + sum)
+}
+
+function teldelen() {
+    let num1 = prompt("Eerste getal")
+    let num2 = prompt("Tweede getal")
+
+ if (isNaN(num1) || isNaN(num2)) {
+        alert("ongeldige invoer vul een getal in mongool");
+        return; 
+    }
+    let sum = Number(num1) / Number(num2)
+
+    alert( num1 + "/" + num2 + "=" + sum)
+}
+
+function telkeren() {
+    let num1 = prompt("Eerste getal")
+    let num2 = prompt("Tweede getal")
+
+ if (isNaN(num1) || isNaN(num2)) {
+        alert("ongeldige invoer vul een getal in mongool");
+        return; 
+    }
+    let sum = Number(num1) * Number(num2)
+
+    alert( num1 + "*" + num2 + "=" + sum)
+}
+
+
+
+    </script>
+</body>
+
+</html>

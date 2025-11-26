@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        let voornaam = prompt("wat is je naam");
+        let achternaam = prompt("wat is je achternaam");
+        const geboortejaar = prompt("Wat is je geboortejaar")
+        let isStudent = true;
+
+        let cijferWiskunde = 3;
+        let cijferNederlands = 10;
+        let cijferProgrammeren = 10;
+
+        const HUIDIGE_JAAR = 2025;
+        const MINIMUM_CIJFER = 5.5;
+
+        let leeftijd = HUIDIGE_JAAR - geboortejaar;
+        let gemiddeldeCijfer = (cijferWiskunde + cijferNederlands + cijferProgrammeren) / 3;
+        if (gemiddeldeCijfer >= MINIMUM_CIJFER) {
+            let geslaagd = true;
+            console.log("Je bent geslaagd!")
+        } else {
+            let geslaagd = false;
+            console.log("je bent een mongool")
+        }
+
+        console.log(typeof voornaam)
+        console.log(typeof achternaam)
+        console.log(typeof geboortejaar)
+        console.log(typeof isStudent)
+        console.log(typeof cijferNederlands)
+        console.log(typeof cijferProgrammeren)
+        console.log(typeof cijferWiskunde)
+        console.log(typeof leeftijd)
+        console.log(typeof HUIDIGE_JAAR)
+        console.log(typeof MINIMUM_CIJFER)
+        console.log(typeof gemiddeldeCijfer)
+        console.log(typeof geslaagd)
+
+        console.log(typeof Number)
+        console.log("==")
+        console.log("8 number variables")
+        console.log("2 strings")
+        console.log("1 boolean")
+        console.log("1 function")
+
+
+
+    </script>
+</body>
+
+</html>

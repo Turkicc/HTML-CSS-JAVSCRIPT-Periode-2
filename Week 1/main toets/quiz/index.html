@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="informatie()">Geef uw informatie hier</button>
+    <p>Profiel van persoon</p>
+    <p id="naam"></p>
+    <p id="leeftijd"></p>
+    <p id="pizza"></p>
+    <p id="favogetal"></p>
+
+
+    <script>
+        // informatie invullen
+        function informatie() {
+            let naam = prompt("Wat is uw naam?");
+            let leeftijd = prompt("Wat is uw leeftijd?");
+            let pizza = prompt("Houdt u van pizza? (ja/nee)");
+
+            // pizza invullen
+            if (pizza.toLocaleLowerCase() === "nee") {
+                alert("Oke, geen pizza voor u dan!");
+                return;
+            }
+            let favogetal = prompt("Wat is uw favoriete getal?");
+
+            // geeft aan in de website
+            document.getElementById("naam").innerText = "Naam: " + naam;
+            document.getElementById("leeftijd").innerText = "Leeftijd: " + leeftijd;
+            document.getElementById("pizza").innerText = "Houdt van pizza: " + pizza;
+            document.getElementById("favogetal").innerText = "Favoriet getal: " + favogetal;
+
+        }
+    </script>
+</body>
+
+</html>

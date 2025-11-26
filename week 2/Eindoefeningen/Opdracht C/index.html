@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="alles()">klik</button>
+
+    <script>
+        function alles() {
+
+            let voornaam = prompt("wat is je voornaam?")
+            let achternaam = prompt("wat is je achternaam?")
+            let leeftijd = prompt("wat is je leeftijd?")
+            let HUIDIGE_JAAR = 2025
+
+            if (isNaN(leeftijd)) {
+                return;
+            }
+
+            let woonplaats = prompt("welke stad woon je?")
+            let studeert = confirm("studeer je?")
+
+            let volledigenaam = voornaam + " " + achternaam
+            let geboortejaar = HUIDIGE_JAAR - leeftijd
+
+
+            console.log("===== DATATYPES =====")
+            console.log("typeof voornaam: " + typeof (voornaam))
+            console.log("typeof achternaam: " + typeof (achternaam))
+            console.log("typeof leeftijd: " + typeof (leeftijd))
+            console.log("typeof HUIDIGE_JAAR: " + typeof (HUIDIGE_JAAR))
+            console.log("typeof woonplaats: " + typeof (woonplaats))
+            console.log("typeof studeert: " + typeof (studeert))
+            console.log("typeof volledigenaam: " + typeof (volledigenaam))
+            console.log("typeof geboortejaar: " + typeof (geboortejaar))
+
+            console.log("===== profiel ====")
+            console.log("Naam = " + volledigenaam)
+            console.log("leeftijd = " + leeftijd + " jaar")
+            console.log("geboortejaar = " + geboortejaar)
+            console.log("woonplaats = " + woonplaats)
+            console.log("studeert = " + studeert)
+            console.log(typeof (voornaam))
+        }
+    </script>
+</body>
+
+</html>

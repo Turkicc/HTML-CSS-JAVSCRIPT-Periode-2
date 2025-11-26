@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="geboortejaar()"> Geboortejaar Berekenaar</button>
+
+
+    <script>
+
+        function geboortejaar() {
+
+            let geboortejaar = prompt("wat is je geboortejaar")
+            let vandaag = 2025
+
+            let sum = Number(vandaag) - Number(geboortejaar)
+// onder 120 jaar oud
+            if (sum < 120 ) {
+
+                
+                alert("je bent " + sum + " jaar oud!")
+                alert("Je bent geboren in " + geboortejaar)
+                
+                if (geboortejaar >= 2000 && geboortejaar <= 2010) {
+                    alert("De Sony PlayStation 2 werd gelanceerd");
+                } else if (geboortejaar >= 1990 && geboortejaar < 2000) {
+                    alert("De Hubble-ruimtetelescoop werd gelanceerd");
+                } else {
+                    alert("Geen belangrijke gebeurtenis voor dit jaar toegevoegd");
+                }
+            }
+// als je over 120 jaar oud bent
+            else {
+                alert("voor wie zit je te liegen opgedonderd")
+                return;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

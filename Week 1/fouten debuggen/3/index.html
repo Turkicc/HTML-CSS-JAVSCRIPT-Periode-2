@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="berekenLeeftijd()">Bereken</button>
+
+<script>
+function berekenLeeftijd() {
+    let geboortejaar = prompt("In welk jaar ben je geboren?");
+    let huidigJaar = 2025;
+    let leeftijd = huidigJaar - geboortejaar;
+    console.log("leeftijd =", leeftijd);
+    alert("Je bent ongeveer " + leeftijd + " jaar oud!");
+}
+</script>
+</body>
+</html>
