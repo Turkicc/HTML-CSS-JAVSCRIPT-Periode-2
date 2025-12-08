@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Systeem</title>
+</head>
+<body>
+    <h1>Login Systeem</h1>
+    
+    <form>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button type="button" onclick="login()">Login</button>
+    </form>
+    
+    <script>
+let loginpogingen = 0;
+
+let adminusername = "admin";
+let adminpassword = "password123";
+
+let gebruikerusername = "user";
+let gebruikerwachtwoord = "wachtwoord";
+
+function login() {
+
+    let inputUsername = document.getElementById("username").value;
+    let inputPassword = document.getElementById("password").value;
+
+    if ((inputUsername === adminusername && inputPassword === adminpassword) ||
+        (inputUsername === gebruikerusername && inputPassword === gebruikerwachtwoord)) {
+        alert("Login succesvol! Welkom, " + inputUsername + "!");
+        loginpogingen++;
+
+    } else {
+        alert("Onjuiste gebruikersnaam of wachtwoord. Probeer het opnieuw.");
+                loginpogingen++;
+    }
+console.log("Aantal loginpogingen: " + loginpogingen);
+}
+
+    </script>
+</body>
+</html>

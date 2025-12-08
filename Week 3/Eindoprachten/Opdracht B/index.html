@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profiel</title>
+    
+    <style>
+        #username { 
+            color: red; 
+            font-weight: bold;
+        }
+        #age { 
+            font-size: 21px; 
+            font-weight: bold;
+        }
+        #location {
+            color: green;
+            font-weight: bold;
+        }
+        #favColor { 
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+       Beste <span id="username">LADEN...</span> je bent <span id="age">--</span> jaar oud, 
+       woont in <span id="locatie">LADEN...</span> en je favoriete kleur is 
+       <span id="favColor">LADEN...</span>.
+    </div>
+
+    <script>
+        var username = "John";
+        var age = 21;
+        var locatie = "Amersfoort";
+        var favColor = "blauw";
+
+        document.getElementById("username").innerText = username;
+        document.getElementById("age").innerText = age;
+        document.getElementById("locatie").innerText = locatie;
+        document.getElementById("favColor").innerText = favColor;
+    </script>
+    </script>
+</body>
+</html>

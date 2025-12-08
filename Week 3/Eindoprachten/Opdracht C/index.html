@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #getal1, #getal2, #optellen, #aftrekken, #vermenigvuldigen, #delen, #modulus {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        #num1 {
+            color: purple;
+        }
+
+        #num2 {
+            color: orange;
+        }
+
+        #plus {
+            color: green;
+        }
+        #min {
+            color: red;
+        }
+        #keer {
+            color: blue;
+        }
+        #gedeeld {
+            color: brown;
+        }
+        #rest {
+            color: rgb(255, 0, 153);
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <h1>Rekenmachine</h1>
+    <div id="getal1">Getal 1: <span id="num1">5</span></div>
+    <div id="getal2">Getal 2: <span id="num2">3</span></div>
+    <hr>
+    <div id="optellen">Optellen: <span id="plus"></span></div>
+    <div id="aftrekken">Aftrekken: <span id="min"></span></div>
+    <div id="vermenigvuldigen">Vermenigvuldigen: <span id="keer"></span></div>
+    <div id="delen">Delen: <span id="gedeeld"></span></div>
+    <div id="modulus">Rest bij deling: <span id="rest"></span></div>
+
+
+    <script>
+        let getall = 5
+        let getal2 = 3
+
+        document.getElementById("plus").innerText = getall + getal2
+        document.getElementById("min").innerText = getall - getal2
+        document.getElementById("keer").innerText = getall * getal2
+        document.getElementById("gedeeld").innerText = getall / getal2
+        document.getElementById("rest").innerText = getall % getal2
+
+    </script>
+</body>
+
+</html>
