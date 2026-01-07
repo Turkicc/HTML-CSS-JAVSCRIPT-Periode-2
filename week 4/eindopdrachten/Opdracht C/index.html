@@ -16,24 +16,27 @@ function leeftijd() {
     
 
     leeftijd = Number(leeftijd);
-    
-    if (leeftijd >= 0 && leeftijd <= 12) {
-        document.getElementById("categorie").innerText = "Je bent een kind";
-    }
-    else if (leeftijd >= 13 && leeftijd <= 17) {
-        document.getElementById("categorie").innerText = "Je bent een tiener";
-    }
-    else if (leeftijd >= 18 && leeftijd <= 24) {
-        document.getElementById("categorie").innerText = "Je bent een jongvolwassene";
-    }
-    else if (leeftijd >= 25 && leeftijd <= 64) {
-        document.getElementById("categorie").innerText = "Je bent een volwassene";
-    }
-    else if (leeftijd >= 65) {
-        document.getElementById("categorie").innerText = "Je bent een senior";
+    if (leeftijd < 0 || isNaN(leeftijd)) {
+        document.getElementById("categorie").innerText = "Ongeldige leeftijd";
     }
     else {
-        document.getElementById("categorie").innerText = "Ongeldige leeftijd";
+
+        
+        if (leeftijd >= 0 && leeftijd <= 12) {
+            document.getElementById("categorie").innerText = "Je bent een kind" + "" + "Je hebt 50% korting!";
+        }
+        else if (leeftijd >= 13 && leeftijd <= 17) {
+            document.getElementById("categorie").innerText = "Je bent een tiener" + "" + "Je hebt 25% korting!";
+        }
+        else if (leeftijd >= 18 && leeftijd <= 24) {
+            document.getElementById("categorie").innerText = "Je bent een jongvolwassene";
+        }
+        else if (leeftijd >= 25 && leeftijd <= 64) {
+            document.getElementById("categorie").innerText = "Je bent een volwassene";
+        }
+        else if (leeftijd >= 65) {
+            document.getElementById("categorie").innerText = "Je bent een senior"+ "" + "Je hebt 30% korting!";
+        }
     }
 }
 </script>

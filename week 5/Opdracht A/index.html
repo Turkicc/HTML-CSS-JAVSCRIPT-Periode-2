@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Optel Applicatie</title>
+</head>
+
+<body>
+    <h1>Optel Applicatie</h1>
+
+    <form>
+        <input type="number" id="start" placeholder="Start getal" min="-1000" max="1000">
+        <input type="number" id="eind" placeholder="Eind getal" min="-1000" max="1000">
+        <button type="button" onclick="bereken()">Bereken</button>
+    </form>
+
+    <div id="resultaat"></div>
+
+    <script>
+        function bereken() {
+
+            let start = document.getElementById("start").value;
+            let eind = document.getElementById("eind").value;
+
+            start = Number(start);
+            eind = Number(eind);
+
+            let som = 0;
+
+            for (let i = start; i <= eind; i++) {
+                som += i;
+                document.getElementById("resultaat").innerText = "De som van " + start + " tot " + eind + " is: " + som;
+                }
+            }
+    </script>
+</body>
+
+</html>
