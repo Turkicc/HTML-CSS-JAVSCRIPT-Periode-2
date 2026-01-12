@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rekenmachine 2.0</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container>div:last-child {
+            text-align: end;
+            flex: 0.1;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="container">
+            <div><input type="number" id="number1" placeholder="Number 1" step="any"></div>
+            <div>
+                <select name="operator" id="operator">
+                    <option value="add">+</option>
+                    <option value="subtract">-</option>
+                    <option value="multiply">x</option>
+                    <option value="divide">/</option>
+                    <option value="power">^</option>
+                    <option value="module">%</option>
+                    <option value="root">√</option>
+                </select>
+            </div>
+            <div><input type="number" id="number2" placeholder="Number 2" step="any"></div>
+            <div><input type="submit" value="=" onclick="rekenmachine(event)"></div>
+            <div id="result">#</div>
+        </div>
+    </form>
+
+    <script>
+
+
+        function rekenmachine(event) {
+            event.preventDefault();
+
+            let number1 = parseFloat(document.getElementById("number1").value);
+            let number2 = parseFloat(document.getElementById("number2").value);
+            let operator = document.getElementById("operator").value;
+
+            let result;
+
+            if (operator === "add") {
+                result = number1 + number2;
+            }
+            else if (operator === "subtract") {
+                result = number1 - number2;
+            }
+            else if (operator === "multiply") {
+                result = number1 * number2;
+            }
+            else if (operator === "divide") {
+                result = number1 / number2;
+            }
+            else if (operator === "power") {
+                result = Math.pow(number1, number2);
+            }
+            else if (operator === "module") {
+                result = number1 % number2;
+            }
+            else if (operator === "root") {
+                result = Math.pow(number1, 1 / number2);
+            }
+
+            if (isNaN(result)) {
+                error()
+            }
+
+            if (operator === "divide" && number2 === 0) {
+                result = "ah mongool wat probeer je door 0 te delen";
+            }
+
+            document.getElementById("result").innerText = result;
+        }
+
+        let error = () => {
+            document.getElementById("result").innerText = "Voer geldige nummers in.";
+        }
+    </script>
+</body>
+
+</html>
