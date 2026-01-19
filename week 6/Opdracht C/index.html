@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Winkelwagen</h1>
+
+    <h2>Producten</h2>
+    <div id="productLijst"></div>
+
+    <h2>Winkelwagen</h2>
+    <div id="wagenLijst"></div>
+
+    <p id="totaalTekst"></p>
+
+    <button onclick="leegWinkelwagen()">Leeg winkelwagen</button>
+
+    <input id="zoek" placeholder="Zoek product" onkeyup="toonProducten()">
+    <button onclick="sorteerNaam()">Sorteer naam</button>
+    <button onclick="sorteerPrijs()">Sorteer prijs</button>
+
+    <script>
+
+        let producten = [
+            { id: 1, naam: "Laptop", prijs: 899, categorie: "Electronics" },
+            { id: 2, naam: "Muis", prijs: 25, categorie: "Electronics" },
+            { id: 3, naam: "Boek", prijs: 15, categorie: "Books" },
+            { id: 4, naam: "Lamp", prijs: 45, categorie: "Furniture" }
+        ];
+
+        let winkelwagen = [];
+
+        function addToCart(id) {
+            let product = producten.find(p => p.id == id);
+            let item = winkelwagen.find(i => i.id == id);
+
+            if (item) {
+                item.aantal = item.aantal + 1;
+            } else {
+                winkelwagen.push({
+                    id: product.id,
+                    naam: product.naam,
+                    prijs: product.prijs,
+                    categorie: product.categorie,
+                    aantal: 1
+                });
+            }
+
+            toonWinkelwagen();
+        }
+
+        function removeFromCart(id) {
+            winkelwagen = winkelwagen.filter(i => i.id != id);
+            toonWinkelwagen();
+        }
+
+        function updateQuantity(id, aantal) {
+            let item = winkelwagen.find(i => i.id == id);
+            if (item) {
+                item.aantal = Number(aantal);
+                if (item.aantal <= 0) {
+                    removeFromCart(id);
+                }
+            }
+            toonWinkelwagen();
+        }
+
+        function calculateTotal() {
+            let totaal = 0;
+            for (let i of winkelwagen) {
+                totaal = totaal + (i.prijs * i.aantal);
+            }
+            return totaal;
+        }
+
+        function berekenKorting(subtotaal) {
+            let totaalItems = 0;
+            let electronicsItems = 0;
+
+            for (let i of winkelwagen) {
+                totaalItems = totaalItems + i.aantal;
+                if (i.categorie == "Electronics") {
+                    electronicsItems = electronicsItems + i.aantal;
+                }
+            }
+
+            if (electronicsItems >= 5) return 0.20;
+            if (subtotaal > 100) return 0.15;
+            if (totaalItems >= 3) return 0.10;
+
+            return 0;
+        }
+
+        function toonProducten() {
+            let zoektekst = document.getElementById("zoek").value.toLowerCase();
+            let html = "";
+
+            for (let p of producten) {
+                if (p.naam.toLowerCase().includes(zoektekst)) {
+                    html += p.naam + " - €" + p.prijs + " ";
+                    html += "<button onclick='addToCart(" + p.id + ")'>Toevoegen</button><br>";
+                }
+            }
+
+            document.getElementById("productLijst").innerHTML = html;
+        }
+
+        function toonWinkelwagen() {
+            if (winkelwagen.length == 0) {
+                document.getElementById("wagenLijst").innerHTML = "Winkelwagen is leeg";
+                document.getElementById("totaalTekst").innerHTML = "";
+                return;
+            }
+
+            let html = "";
+
+            for (let i of winkelwagen) {
+                html += i.naam + " (" + i.aantal + "x) = €" + (i.prijs * i.aantal);
+                html += " <button onclick='removeFromCart(" + i.id + ")'>X</button><br>";
+            }
+
+            document.getElementById("wagenLijst").innerHTML = html;
+
+            let subtotaal = calculateTotal();
+            let kortingPercentage = berekenKorting(subtotaal);
+            let kortingBedrag = subtotaal * kortingPercentage;
+            let totaal = subtotaal - kortingBedrag;
+
+            let tekst = "Subtotaal: €" + subtotaal + "<br>";
+            tekst += "Korting (" + (kortingPercentage * 100) + "%): -€" + kortingBedrag + "<br>";
+            tekst += "TOTAAL: €" + totaal;
+
+            document.getElementById("totaalTekst").innerHTML = tekst;
+        }
+
+        function leegWinkelwagen() {
+            winkelwagen = [];
+            toonWinkelwagen();
+        }
+
+        function sorteerNaam() {
+            producten.sort((a, b) => a.naam.localeCompare(b.naam));
+            toonProducten();
+        }
+
+        function sorteerPrijs() {
+            producten.sort((a, b) => a.prijs - b.prijs);
+            toonProducten();
+        }
+
+        toonProducten();
+        toonWinkelwagen();
+
+    </script>
+
+</body>
+
+</html>

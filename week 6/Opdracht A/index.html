@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <style>
+        body {
+            font-family: Arial;
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        input {
+            padding: 10px;
+            width: 70%;
+        }
+
+        button {
+            padding: 10px 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f0f0f0;
+        }
+
+        .done {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>📝 Todo List</h1>
+
+    <div>
+        <input type="text" id="todoInput" placeholder="Nieuwe todo...">
+        <button onclick="addTodo()">Toevoegen</button>
+    </div>
+    <button onclick="clearAll()">Clear All</button>
+
+
+    <ul id="todoList"></ul>
+
+    <script>
+        let todo = [];
+        let currentFilter = "all";
+
+        function addTodo() {
+            const input = document.getElementById("todoInput");
+            const text = input.value.trim();
+
+            if (text === "") return;
+
+            todo.push({ text: text, done: false });
+            input.value = "";
+            rendertodo();
+        }
+
+        function deleteTodo(index) {
+            todo.splice(index, 1);
+            rendertodo();
+        }
+
+        function toggleDone(index) {
+            todo[index].done = !todo[index].done;
+            rendertodo();
+        }
+
+        function clearAll() {
+            todo = [];
+            rendertodo();
+        }
+
+        function setFilter(filter) {
+            currentFilter = filter;
+            rendertodo();
+        }
+
+        function rendertodo() {
+            const list = document.getElementById("todoList");
+            list.innerHTML = "";
+
+            let filteredtodo = todo.filter(todo => {
+                if (currentFilter === "active") return !todo.done;
+                if (currentFilter === "done") return todo.done;
+                return true;
+            });
+
+            filteredtodo.forEach((todo, index) => {
+                const li = document.createElement("li");
+
+                li.className = todo.done ? "done" : "";
+                li.innerHTML = `
+            <span onclick="toggleDone(${index})" style="cursor:pointer;">
+                ${todo.text}
+            </span>
+            <button onclick="deleteTodo(${index})">Verwijder</button>
+        `;
+
+                list.appendChild(li);
+            });
+
+            document.getElementById("counter").innerText =
+                `Aantal todo: ${todo.length}`;
+        }
+        function clearAll() {
+            todo = [];
+            rendertodo();
+        }
+
+    </script>
+
+</body>
+
+</html>
