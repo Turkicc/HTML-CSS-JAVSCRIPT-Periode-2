@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="patroon2"></div>
+
+
+    <script>
+        //patroon 2
+        let rows = 10;
+        let result = "";
+
+        for (let i = rows; i >= 1; i--) {
+            for (let j = 0; j < i; j++) {
+                result += j + " ";
+            }
+            result += "\n";
+        }
+
+        document.getElementById("patroon2").innerText = result;
+    </script>
+</body>
+
+</html>
